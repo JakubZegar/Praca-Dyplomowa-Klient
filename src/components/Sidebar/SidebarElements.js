@@ -8,7 +8,7 @@ export const SidebarContainer = styled.aside`
     z-index: 100;
     width: 100%;
     height: 100%;
-    background: #0d0d0d;
+    background: #101522;
     display: grid;
     align-items: center;
     /* top: 0; */
@@ -62,13 +62,31 @@ export const SideBtnWrap = styled.div`
     justify-content: center;
     align-items: center;
 `
+export const FlagContainer = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 60px;
+    width: 100%;
+    z-index: 1;
+    margin: 0 4px;
+    cursor: pointer;
+
+`
+
+export const FlagSection = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+`
 
 export const SidebarRoute = styled(LinkR)`
     border-radius: 50px;
-    background:  #59D9C1;
+    background:  #BF567D;
     white-space: nowrap;
     padding: 16px 64px;
-    color: #F2F2F2;
+    color: #fff;
     font-size: 16px;
     font-weight: bold;
     outline: none;
@@ -79,8 +97,8 @@ export const SidebarRoute = styled(LinkR)`
 
     &:hover {
         transition: all 0.2s ease-in-out;
-        background: #F2C36B;
-        color: #0d0d0d;
+        background: #01BF71;
+        color: #ffffff;
     }
 `
 

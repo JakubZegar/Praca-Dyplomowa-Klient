@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import topBackgorund from '../../../assets/landing-front.svg'
+import topBackgorund from '../../../images/personal.svg'
 import {MdKeyboardArrowRight, MdArrowForward} from 'react-icons/md'
 
 export const TopContainer = styled.div`
@@ -7,17 +7,19 @@ export const TopContainer = styled.div`
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    padding: 0 30px;
+    padding: 0 70px;
+    margin-top: 80px;
     height: 650px;
     width: 100%;
     position: relative;
     z-index: 1;
-    background: #cfdce5;
+    background: #BABBCF;
 
     @media screen and (max-width: 768px) {
         flex-direction: column;
+        height: 714px;
+        padding-bottom: 64px;
     }
-
 `
 
 export const TopBg = styled.div`
@@ -48,12 +50,16 @@ export const TopH1 = styled.h1`
     font-size: 48px;
     text-align: center;
 
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 1024px) {
         font-size: 40px;
+    }
+
+    @media screen and (max-width: 768px) {
+        font-size: 32px;
     }
     
     @media screen and (max-width: 480px) {
-        font-size: 32px;
+        font-size: 24px;
     }
 `
 

@@ -1,27 +1,30 @@
 import React, {useState} from 'react'
 import {TopContainer, TopBg, TopContent, TopH1, TopP, TopBtnWrapper, ArrowForward, ArrowRight} from './TopSectionElements'
 import {Button} from '../../ButtonElements'
+import {useTranslation} from 'react-i18next';
+
 const TopSection = () => {
 
     const [hover, setHover] = useState(false);
+    const [t, i18n] = useTranslation();
 
     const onHover = () => {
         setHover(value => !value);
     }
 
     return (
-        <TopContainer id="home">
+        <TopContainer id="about">
             <TopBg/>
             <TopContent>
                 <TopH1>
-                    Doglądaj swojej strony w sposób prosty jak nigdy dotąd!
+                    {t('landingTop1')}
                 </TopH1>
                 <TopP>
-                    Zarejestruj się i przjedź na wyższy poziom marketingu internetowego
+                    {t('landingTop2')}
                 </TopP>
                 <TopBtnWrapper>
                     <Button to='singup' onMouseEnter={onHover} onMouseLeave={onHover}>
-                        Rozpocznij {hover ? <ArrowForward /> : <ArrowRight />}
+                        {t('landingTopButton')} {hover ? <ArrowForward /> : <ArrowRight />}
                     </Button>
                 </TopBtnWrapper>
             </TopContent>

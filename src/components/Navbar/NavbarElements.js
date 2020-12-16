@@ -3,9 +3,10 @@ import {Link as LinkR} from 'react-router-dom'
 import {Link as LinkS} from 'react-scroll'
 
 export const Nav = styled.nav`
-    background: #0D0D0D;
+    background: #101522;
+    /* background: ${({scrollNav}) => (scrollNav ? 'rgba(0,0,0,0.5)' :  '#101522' )}; */
     height: 80px;
-    /* margin-top: -80px; */
+    margin-top: -80px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -18,6 +19,31 @@ export const Nav = styled.nav`
         transition: 0.8s all ease
     }
 `
+
+export const FlagContainer = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 40px;
+    width: 100%;
+    z-index: 1;
+    margin: 0 4px;
+    cursor: pointer;
+
+    @media screen and (max-width: 1280px){
+        max-width: 40px;
+    }
+`
+
+export const FlagSection = styled.div`
+    display: flex;
+    flex-direction: row;
+
+    @media screen and (max-width: 768px) {
+        display: none;
+    }
+`
+
 
 export const NavbarContainer = styled.div`
     display: flex;
@@ -68,7 +94,6 @@ export const NavMenu = styled.ul`
     }
 `
 
-
 export const NavItem = styled.li`
     height: 80px;
 `
@@ -83,7 +108,7 @@ export const NavLinks = styled(LinkS)`
     cursor: pointer;
 
     &.active {
-        border-bottom: 3px solid #99A3BF;
+        border-bottom: 4px solid #BF567D;
     }
 `
 
@@ -98,9 +123,10 @@ export const NavBtn = styled.nav`
 
 export const NavBtnLink = styled(LinkR)`
     border-radius: 50px;
-    background: #59D9C1;
+    background: #BF567D;
     white-space: nowrap;
     padding: 10px 22px;
+    text-align: center;
     color: #F2F2F2;
     font-size: 16px;
     font-weight: bold;
@@ -109,11 +135,10 @@ export const NavBtnLink = styled(LinkR)`
     cursor: pointer;
     transition: all 0.2s ease-in-out;
     text-decoration: none;
-
+    
     &:hover {
         transition: all 0.2s ease-in-out;
-        background: #F2C36B;
         color: #F2F2F2;
-        box-shadow: 10px;
+        scale: 1.1;
     }
 `

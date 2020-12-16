@@ -8,9 +8,18 @@ import {
     SidebarRoute,
     SidebarWrapper,
     SidebarMenu,
+    FlagSection,
+    FlagContainer
 } from './SidebarElements'
+import Flags from 'country-flag-icons/react/3x2'
+import {useTranslation} from 'react-i18next';
 
 const Sidebar = ({isOpen, toggle}) => {
+    const [t, i18n] = useTranslation();
+
+    const changeLanguage = (language) => {
+        i18n.changeLanguage(language)
+    };
     return (
         <SidebarContainer isOpen={isOpen} onClick={toggle}>
             <Icon onClick={toggle}>
@@ -20,25 +29,34 @@ const Sidebar = ({isOpen, toggle}) => {
             <SidebarWrapper>
                 <SidebarMenu>
                     <SidebarLink to="about" onClick={toggle}>
-                        O aplikacji
+                        {t('about')}
                     </SidebarLink>
 
                     <SidebarLink to="discover" onClick={toggle}>
-                        Odkryj
+                        {t('discover')}
                     </SidebarLink>
 
                     <SidebarLink to="services" onClick={toggle}>
-                        Usługi
+                        {t('services')}
                     </SidebarLink>
 
                     <SidebarLink to="signup" onClick={toggle}>
-                        Rejestracja
+                        {t('register')}
                     </SidebarLink>
+
+                    <FlagSection>
+                        <FlagContainer>
+                            <Flags.GB title="English" onClick={() => changeLanguage('en')}/>
+                        </FlagContainer>
+                        <FlagContainer>
+                            <Flags.PL title="Polish" onClick={() => changeLanguage('pl')}/>
+                        </FlagContainer>
+                    </FlagSection>
                 </SidebarMenu>
 
                 <SideBtnWrap>
                     <SidebarRoute to="/signin">
-                        Zaloguj
+                        {t('login')}
                     </SidebarRoute>
                 </SideBtnWrap>
             </SidebarWrapper>
