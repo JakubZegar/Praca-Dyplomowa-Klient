@@ -34,6 +34,7 @@ export const TopBg = styled.div`
     width: 100%;
     height: 100%;
     overflow: hidden;
+    flex: 1;
 `
 
 export const TopContent = styled.div`
@@ -41,6 +42,7 @@ export const TopContent = styled.div`
     max-width: 1200px;
     padding: 8px 24px;
     display: flex;
+    flex: 1;
     flex-direction: column;
     align-items: center;
 `

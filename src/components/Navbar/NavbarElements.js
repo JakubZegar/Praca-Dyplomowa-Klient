@@ -22,6 +22,7 @@ export const Nav = styled.nav`
 
 export const FlagContainer = styled.div`
     display: flex;
+    flex: 1;
     justify-content: space-between;
     align-items: center;
     max-width: 40px;
@@ -38,7 +39,7 @@ export const FlagContainer = styled.div`
 export const FlagSection = styled.div`
     display: flex;
     flex-direction: row;
-
+    flex: 1;
     @media screen and (max-width: 768px) {
         display: none;
     }
@@ -53,9 +54,12 @@ export const NavbarContainer = styled.div`
     width: 100%;
     padding: 0 24px;
     max-width: 1100px;
+    flex: 1;
+
 `
 
 export const NavLogo = styled(LinkR)`
+    flex: 1;
     color: #F2F2F2;
     justify-self: flex-start;
     cursor: pointer;
@@ -88,6 +92,7 @@ export const NavMenu = styled.ul`
     list-style: none;
     text-align: center;
     margin-right: -22px;
+    flex: 3;
 
     @media screen and (max-width: 768px) {
         display: none;
@@ -96,6 +101,23 @@ export const NavMenu = styled.ul`
 
 export const NavItem = styled.li`
     height: 80px;
+`
+
+export const NavItemR = styled(LinkR)`
+    color: #F2F2F2;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    padding: 0 1rem;
+    height: 100%;
+    cursor: pointer;
+
+    &.active {
+        border-bottom: 4px solid #BF567D;
+    }
+    &:hover {
+        
+    }
 `
 
 export const NavLinks = styled(LinkS)`

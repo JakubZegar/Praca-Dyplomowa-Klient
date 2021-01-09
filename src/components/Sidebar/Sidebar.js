@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import {
     SidebarContainer,
     Icon,
@@ -9,17 +9,36 @@ import {
     SidebarWrapper,
     SidebarMenu,
     FlagSection,
-    FlagContainer
+    FlagContainer,
+    SidebarLinkR
 } from './SidebarElements'
 import Flags from 'country-flag-icons/react/3x2'
 import {useTranslation} from 'react-i18next';
 
 const Sidebar = ({isOpen, toggle}) => {
+
     const [t, i18n] = useTranslation();
+    const [isLogged, setIsLogged] = useState(false);
 
     const changeLanguage = (language) => {
         i18n.changeLanguage(language)
     };
+
+    const logOut = () => {
+        console.log("asdasdsda");
+        localStorage.removeItem('login');
+        setIsLogged(false);
+    }
+
+    useEffect(() => {
+        try {
+            let token = localStorage.getItem('login')
+            setIsLogged(JSON.parse(token).isLogged);
+        } catch (e) {
+            console.log('error' + e);
+        }
+    }, [])
+
     return (
         <SidebarContainer isOpen={isOpen} onClick={toggle}>
             <Icon onClick={toggle}>
@@ -40,9 +59,17 @@ const Sidebar = ({isOpen, toggle}) => {
                         {t('services')}
                     </SidebarLink>
 
-                    <SidebarLink to="signup" onClick={toggle}>
-                        {t('register')}
-                    </SidebarLink>
+                    {
+                            isLogged ? (
+                            <SidebarLinkR to="/dashboard" onClick={toggle}>
+                                {t('dashboard')}
+                            </SidebarLinkR>
+                                ) : (
+                            <SidebarLinkR to="/register" onClick={toggle}>
+                                {t('register')}
+                            </SidebarLinkR>
+                            ) 
+                        }
 
                     <FlagSection>
                         <FlagContainer>
@@ -55,9 +82,17 @@ const Sidebar = ({isOpen, toggle}) => {
                 </SidebarMenu>
 
                 <SideBtnWrap>
-                    <SidebarRoute to="/signin">
-                        {t('login')}
-                    </SidebarRoute>
+                {
+                    isLogged ? (
+                        <SidebarRoute onClick={() => logOut()}>
+                            {t('logout')}
+                        </SidebarRoute>
+                    ) : (
+                        <SidebarRoute to="/signin">
+                            {t('login')}
+                        </SidebarRoute>
+                    ) 
+                }
                 </SideBtnWrap>
             </SidebarWrapper>
         </SidebarContainer>

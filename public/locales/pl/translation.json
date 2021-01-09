@@ -1,5 +1,5 @@
 {
-    "appName": "Aplikacja",
+    "appName": "Apliakcja",
     "login": "Zaloguj",
     "about": "O aplikacji",
     "discover": "Odkryj",
@@ -11,5 +11,32 @@
     "topLine": "Odkryj nowe możliwości",
     "heading": "To jeszcze nigdy nie było tak proste!",
     "subtitle": "Rozwijaj swój biznes dzięki zaawansowanej analityce internetowej",
-    "midButtonLabel": "Zacznij już teraz"
+    "midButtonLabel": "Zacznij już teraz",
+    "username": "Nazwa użytkownika",
+    "password": "Hasło",
+    "dontHaveAccount": "Nie posiadasz konta?",
+    "registerLogin": "Zarejestruj się",
+    "email": "Adres email",
+    "name": "Imię i nazwisko",
+    "confirmPassword": "Potwierdź hasło",
+    "createAccount": "Utwórz konto",
+    "alreadyHaveAnAccount": "Masz już konto?",
+    "registerRegister": "Zaloguj się",
+    "optimalise": "Optymalizuj",
+    "optimaliseDesc": "Wyjdź naprzeciw klientom",
+    "improve": "Ulepszaj",
+    "improveDesc": "Poprawiaj jakość swoich usług",
+    "earn": "Zarabiaj",
+    "earnDesc": "Zwiększaj swoje przychody",
+    "dashboard": "Panel użytkownika",
+    "logout": "Wyloguj",
+    "mainPage": "Strona główna",
+    "dbGreeting": "Jesteś zalogowany jako ",
+    "visits": "Odwiedziny",
+    "modules": "Moduły",
+    "interaction": "Interakcje",
+
+    
+    "last24": "Aktywność w ciągu ostatnich 24 godzin:",
+    "yourModules": "Twoje moduły: "
 }

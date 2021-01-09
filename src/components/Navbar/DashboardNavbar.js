@@ -5,7 +5,7 @@ import {useTranslation} from 'react-i18next';
 import Flags from 'country-flag-icons/react/3x2'
 import {animateScroll} from 'react-scroll';
 
-const Navbar = ({toggle, isOpen}) => {
+const DashboardNavbar = ({toggle, isOpen}) => {
     const [t, i18n] = useTranslation();
     const [scrollNav, setScrollNav] = useState(false);
     const [isLogged, setIsLogged] = useState(false);
@@ -59,27 +59,27 @@ const Navbar = ({toggle, isOpen}) => {
 
                     <NavMenu>
                         <NavItem>
-                            <NavLinks to="about" smooth={true} duration={600} spy={true} exact='true' offset={-80}>
-                                {t('about')}
+                            <NavLinks to="visits" smooth={true} duration={600} spy={true} exact='true' offset={-80}>
+                                {t('visits')}
                             </NavLinks>
                         </NavItem>
 
                         <NavItem>
-                            <NavLinks to="discover" smooth={true} duration={600} spy={true} exact='true' offset={-80}>
-                                {t('discover')}
+                            <NavLinks to="modules" smooth={true} duration={600} spy={true} exact='true' offset={-80}>
+                                {t('modules')}
                             </NavLinks>
                         </NavItem>
 
                         <NavItem>
-                            <NavLinks to="services" smooth={true} duration={600} spy={true} exact='true' offset={-80}>
-                                {t('services')}
+                            <NavLinks to="interaction" smooth={true} duration={600} spy={true} exact='true' offset={-80}>
+                                {t('interaction')}
                             </NavLinks>
                         </NavItem>
                         {
                             isLogged ? (
                             <NavItem>
-                                <NavItemR to="/dashboard">
-                                    {t('dashboard')}
+                                <NavItemR to="/">
+                                    {t('mainPage')}
                                 </NavItemR>
                             </NavItem>
                                 ) : (
@@ -104,17 +104,9 @@ const Navbar = ({toggle, isOpen}) => {
                     </FlagSection>
 
                     <NavBtn>
-                    {
-                        isLogged ? (
-                            <NavBtnLink onClick={() => logOut()}>
-                                {t('logout')}
-                            </NavBtnLink>
-                        ) : (
-                            <NavBtnLink to="/signin">
-                                {t('login')}
-                            </NavBtnLink>
-                        ) 
-                    }
+                        <NavBtnLink to="/" onClick={() => logOut()}>
+                            {t('logout')}
+                        </NavBtnLink>
                     </NavBtn>
                     
                 </NavbarContainer>
@@ -123,4 +115,4 @@ const Navbar = ({toggle, isOpen}) => {
     )
 }
 
-export default Navbar
+export default DashboardNavbar

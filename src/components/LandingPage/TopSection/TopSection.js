@@ -23,7 +23,7 @@ const TopSection = () => {
                     {t('landingTop2')}
                 </TopP>
                 <TopBtnWrapper>
-                    <Button to='singup' onMouseEnter={onHover} onMouseLeave={onHover}>
+                    <Button to='/singup' onMouseEnter={onHover} onMouseLeave={onHover}>
                         {t('landingTopButton')} {hover ? <ArrowForward /> : <ArrowRight />}
                     </Button>
                 </TopBtnWrapper>
