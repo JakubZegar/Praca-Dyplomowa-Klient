@@ -42,7 +42,6 @@ function Login() {
             login: credentials.usernameOrEmail,
             token: data.accessToken
         }))
-        console.log(data);
         setLoggedIn(true);
 
     }

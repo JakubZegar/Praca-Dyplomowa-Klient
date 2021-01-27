@@ -14,11 +14,6 @@ function Register() {
         email: ''
     })
 
-    useEffect(() => {
-        console.log(JSON.stringify(credentials))
-
-    }, [credentials])
-
     const [confirmPassword, setConfirmPassword] = useState('');
 
     const changeUsername = (event) => {
@@ -58,7 +53,6 @@ function Register() {
         const response = await fetch('http://127.0.0.1:8080/api/auth/signup', requestOptions);
         const data = await response.json();
         console.log(data);
-
     }
 
 

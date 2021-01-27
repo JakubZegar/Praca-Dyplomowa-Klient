@@ -25,7 +25,6 @@ const Sidebar = ({isOpen, toggle}) => {
     };
 
     const logOut = () => {
-        console.log("asdasdsda");
         localStorage.removeItem('login');
         setIsLogged(false);
     }

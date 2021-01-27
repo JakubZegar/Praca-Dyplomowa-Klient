@@ -35,8 +35,16 @@
     "visits": "Odwiedziny",
     "modules": "Moduły",
     "interaction": "Interakcje",
-
-    
     "last24": "Aktywność w ciągu ostatnich 24 godzin:",
-    "yourModules": "Twoje moduły: "
+    "yourModules": "Twoje moduły: ",
+    "yourApiKey": "Twój klucz API:",
+    "clickToShowApiKey": "Pokaż klucz API",
+    "hideApiKey": "Ukryj klucz",
+
+    "lastWeek": "Aktywność w ciągu ostatnich 7 dni",
+    "lastMonth": "Aktywność w ciągu ostatnich 30 dni",
+    "avgTime": "Przeciętny czas aktywności [s]",
+    "timeSpentOnSite": "Czas spędzony na stronie",
+    "timeSpent": "Aktywność czasowa",
+    "userActivity": "Aktywność użytkowników na stronie"
 }

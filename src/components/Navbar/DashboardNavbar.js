@@ -27,7 +27,6 @@ const DashboardNavbar = ({toggle, isOpen}) => {
     }
 
     const logOut = () => {
-        console.log("asdasdsda");
         localStorage.removeItem('login');
         setIsLogged(false);
     }

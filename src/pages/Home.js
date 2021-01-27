@@ -12,7 +12,6 @@ const Home = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     const toggleMobileMenu = () => {
-        console.log(isMobileMenuOpen);
         setIsMobileMenuOpen((isOpen) => !isOpen)
     }
 

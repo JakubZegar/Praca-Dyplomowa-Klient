@@ -28,7 +28,6 @@
   "improveDesc": "Improve your services",
   "earn": "Earn money",
   "earnDesc": "Increase your income",
-
   "dashboard": "Dashboard",
   "logout": "Log Out",
   "mainPage": "Main Page",
@@ -36,7 +35,16 @@
   "visits": "Visits",
   "modules": "Modules",
   "interaction": "Interraction",
+  "last24": "Last 24 hours activity",
+  "yourModules": "Your modules: ",
+  "yourApiKey": "Your API key:",
+  "clickToShowApiKey": "Click to show API Key",
+  "hideApiKey": "Hide API key",
 
-  "last24": "Last 24 hours:",
-  "yourModules": "Your modules: "
+  "lastWeek": "Last 7 days activity",
+  "lastMonth": "Last 30 days activity",
+  "avgTime": "Average activity  time [s]",
+  "timeSpentOnSite": "Time spent on site",
+  "timeSpent": "Time activity",
+  "userActivity": "User activity on website"
 }

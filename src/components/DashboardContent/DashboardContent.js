@@ -6,107 +6,100 @@ import { DbContainer,
         DbPlotHeader
     } from './DashboardElements'
 import {useTranslation} from 'react-i18next'
-import {
-    Charts,
-    ChartContainer,
-    ChartRow,
-    YAxis,
-    LineChart,
-    Resizable,
-    BarChart,
-    styler
-} from "react-timeseries-charts";
-import { TimeSeries, Index } from "pondjs";
+
+import ApiKey from '../ApiKey/ApiKey';
+import TimeLog24 from '../TimeLog/TimeLog24';
+import TimeLogWeek from '../TimeLog/TimeLogWeek';
+import TimeLogMonth from '../TimeLog/TimeLogMonth';
+import Heatmap from '../Heatmap/Heatmap';
+import TimeSpentOnSite from '../TimeLog/TimeSpentOnSite';
 
 function DashboardContent() {
+    const [properties, setProperties] = useState({});
+    const [userDetails, setUserDetails] = useState({});
+    const [apiKey, setApiKey] = useState("");
+
     const [t, i18n] = useTranslation();
-    const [creds, setCreds] = useState({});
 
     useEffect(() => {
-        setCreds(() => {
+        setProperties(() => {
             return JSON.parse(localStorage.getItem('login'));
         })
     }, [])
 
     useEffect(() => {
-        console.log(creds);
-    }, [creds])
+        if (properties !== {} ) {
+            getUserDetails(properties.login);
+        }
+    }, [properties])
 
-    const style = styler([
-        { key: "precip", color: "#BF567D"},
-    ]);
+    useEffect(() => {
+        if (userDetails.id !== undefined) {
+            getApiKey(properties.token);
+        }
+    }, [userDetails])
 
-    const data = [
-        ["2020-12-17T09:00", 5],
-        ["2020-12-17T10:00", 9],
-        ["2020-12-17T11:00", 4],
-        ["2020-12-17T12:00", 0],
-        ["2020-12-17T13:00", 1],
-        ["2020-12-17T14:00", 0],
-        ["2020-12-17T15:00", 8],
-        ["2020-12-17T16:00", 12],
-        ["2020-12-17T17:00", 17],
-        ["2020-12-17T18:00", 22],
-        ["2020-12-17T19:00", 32],
-        ["2020-12-17T20:00", 32],
-        ["2020-12-17T21:00", 25],
-        ["2020-12-17T22:00", 37],
-        ["2020-12-17T23:00", 51],
-        ["2020-12-18T00:00", 43],
-        ["2020-12-18T01:00", 65],
-        ["2020-12-18T02:00", 54],
-        ["2020-12-18T03:00", 41],
-        ["2020-12-18T04:00", 38],
-        ["2020-12-18T05:00", 29],
-        ["2020-12-18T06:00", 27],
-        ["2020-12-18T07:00", 23],
-        ["2020-12-18T08:00", 16]
-    ];
+    const getUserDetails = async (username) => {
+        fetch('http://127.0.0.1:8080/api/auth/info/' + username, {
+            method: 'GET',
+            headers: {
+              Accept: 'application/json',
+              'Content-Type': 'application/json',
+            },
+          })
+            .then(response => response.json())
+            .then(responseData => {
+              setUserDetails(() => {
+                return responseData;
+            })
+            })
+            .catch(err => {
+              console.log('error : ' + err);
+            });
+    }
 
-    const series = new TimeSeries({
-        name: "Users",
-        columns: ["index", "precip"],
-        points: data.map(([d, value]) => [
-            Index.getIndexString("1h", new Date(d)),
-            value
-        ])
-    });
+    const getApiKey = async (token) => {
+        fetch('http://127.0.0.1:8080/apiKey/get/' + userDetails.id, {
+            method: 'GET',
+            headers: {
+              Accept: 'application/json',
+              'Content-Type': 'application/json',
+              Authorization: 'Bearer ' + token
+            },
+          })
+            .then(response => response.json())
+            .then(responseData => {
+              setApiKey(() => {
+                return responseData.apiKey;
+            })
+            })
+            .catch(err => {
+              console.log('error : ' + err);
+            });
+    }
 
     return (
         <DbContainer>
-            <DbGreetings>{t('dbGreeting')} {creds.login}</DbGreetings>
-            <DbPlotBg>
-                <DbPlotHeader>{t('last24')}</DbPlotHeader>
-                <Resizable>
-                    <ChartContainer timeRange={series.range()}>
-                        <ChartRow height="220">
-                            <YAxis
-                                id="visit"
-                                label={t('visits')}
-                                min={0}
-                                max={70}
-                                format=".0f"
-                                width="70"
-                                type="linear"
-                            />
-                            <Charts>
-                                <BarChart
-                                    axis="visit"
-                                    style={style}
-                                    spacing={1}
-                                    columns={["precip"]}
-                                    series={series}
-                                    minBarHeight={1}
-                                />
-                            </Charts>
-                        </ChartRow>
-                    </ChartContainer>
-                </Resizable>
-            </DbPlotBg>
+            <DbGreetings>{t('dbGreeting')} {properties.login}</DbGreetings>
 
-            <DbModules>
-                <DbGreetings>{t('yourModules')}</DbGreetings>
-            </DbModules>
+            {
+                apiKey !== "" && properties !== {} && userDetails !== {} &&
+                <>
+                    <ApiKey apiKey={apiKey} properties={properties} userDetails={userDetails}></ApiKey>
+                    <DbGreetings>{t('visits')}</DbGreetings>
+                    <TimeLog24 apiKey={apiKey} userDetails={userDetails}></TimeLog24>
+                    <TimeLogWeek apiKey={apiKey} userDetails={userDetails}></TimeLogWeek>
+                    <TimeLogMonth apiKey={apiKey} userDetails={userDetails}></TimeLogMonth>
+
+                    <DbGreetings>{t('timeSpent')}</DbGreetings>
+                    <TimeSpentOnSite apiKey={apiKey} userDetails={userDetails}/>
+
+                    <DbGreetings>{t('userActivity')}</DbGreetings>
+                    <Heatmap apiKey={apiKey} userDetails={userDetails}></Heatmap>
+                </>
+            }
+
+
         </DbContainer>
     )
 }

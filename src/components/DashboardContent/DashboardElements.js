@@ -5,11 +5,12 @@ export const DbContainer = styled.div`
     flex-direction: column;
     padding: 0 70px;
     margin-top: 80px;
-    height: 650px;
+    padding-bottom: 48px;
     width: 100%;
     position: relative;
     z-index: 1;
     background: #BABBCF;
+    min-height: 700px;
 
     @media screen and (max-width: 768px) {
         flex-direction: column;
