@@ -46,5 +46,7 @@
   "avgTime": "Average activity  time [s]",
   "timeSpentOnSite": "Time spent on site",
   "timeSpent": "Time activity",
-  "userActivity": "User activity on website"
+  "userActivity": "User activity on website",
+  "time": "Time spent on site",
+  "30dTime": "Average time in last 30 days"
 }

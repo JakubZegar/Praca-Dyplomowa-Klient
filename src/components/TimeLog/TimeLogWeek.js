@@ -9,6 +9,7 @@ function TimeLogWeek(apiKey, userDetails) {
     const [timeLogWeekData, setTimeLogWeekData] = useState([]);
     const [lastWeekLogs, setLastWeekLogs] = useState([]);
     const [properties, setProperties] = useState({});
+    const [fetched, setFetched] = useState(false);
 
     const [series, setSeries] = useState();
 
@@ -57,9 +58,9 @@ function TimeLogWeek(apiKey, userDetails) {
                 ])
             });
         })
-        setTimeout(() => {
+        if( fetched === true) {
             setIs24hDataReady(true);
-        }, 500);
+        }
     }, [lastWeekLogs])
 
 
@@ -91,6 +92,7 @@ function TimeLogWeek(apiKey, userDetails) {
             .then(response => response.json())
             .then(responseData => {
               if(JSON.stringify(responseData.status) !== '401') {
+                setFetched(true);
                 setLastWeekLogs(() => {return responseData})
               }
             })

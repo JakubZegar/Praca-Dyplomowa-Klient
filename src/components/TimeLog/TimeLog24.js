@@ -13,6 +13,7 @@ function TimeLog24(apiKey, userDetails) {
     const [series, setSeries] = useState();
 
     const [is24hDataReady, setIs24hDataReady] = useState(false);
+    const [fetched, setFetched] = useState(false);
 
     const data = [
         ["2020-12-17T09:00:02", 5],
@@ -59,9 +60,9 @@ function TimeLog24(apiKey, userDetails) {
             });
         })
 
-        setTimeout(() => {
+        if( fetched === true) {
             setIs24hDataReady(true);
-        }, 500);
+        }
     }, [last24HoursLogs])
 
 
@@ -93,6 +94,7 @@ function TimeLog24(apiKey, userDetails) {
             .then(response => response.json())
             .then(responseData => {
               if(JSON.stringify(responseData.status) !== '401') {
+                setFetched(true);
                 setLast24HoursLogs(() => {return responseData})
               }
             })

@@ -1,5 +1,5 @@
 {
-    "appName": "Apliakcja",
+    "appName": "Aplikacja",
     "login": "Zaloguj",
     "about": "O aplikacji",
     "discover": "Odkryj",
@@ -46,5 +46,7 @@
     "avgTime": "Przeciętny czas aktywności [s]",
     "timeSpentOnSite": "Czas spędzony na stronie",
     "timeSpent": "Aktywność czasowa",
-    "userActivity": "Aktywność użytkowników na stronie"
+    "userActivity": "Aktywność użytkowników na stronie",
+    "time" : "Aktywność czasowa",
+    "30dTime": "Średni czas spędzony na stronie przez użytkownika"
 }

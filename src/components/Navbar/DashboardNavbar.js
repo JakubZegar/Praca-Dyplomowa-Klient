@@ -64,8 +64,8 @@ const DashboardNavbar = ({toggle, isOpen}) => {
                         </NavItem>
 
                         <NavItem>
-                            <NavLinks to="modules" smooth={true} duration={600} spy={true} exact='true' offset={-80}>
-                                {t('modules')}
+                            <NavLinks to="time" smooth={true} duration={600} spy={true} exact='true' offset={-80}>
+                                {t('time')}
                             </NavLinks>
                         </NavItem>
 

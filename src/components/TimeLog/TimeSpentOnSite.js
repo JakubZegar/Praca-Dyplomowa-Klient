@@ -12,6 +12,7 @@ function TimeSpentOnSite(apiKey, userDetails) {
     const [properties, setProperties] = useState({});
     const [series, setSeries] = useState();
     const [prepared, setPrepared] = useState([]);
+    const [fetched, setFetched] = useState(false);
 
     const [tempData, setTempData] = useState([[111111111,1],[1131242144, 2]])
 
@@ -52,6 +53,8 @@ function TimeSpentOnSite(apiKey, userDetails) {
                 setPrepared(prevMovies => ([...prevMovies, [chartRow[0], chartRow[2]/chartRow[1]]]))
             )
         ))
+
+
     }, [allTimeLogs])
 
     useEffect(() => {
@@ -66,16 +69,10 @@ function TimeSpentOnSite(apiKey, userDetails) {
                 });
             })
         }
-
-    }, [prepared])
-
-
-
-    useEffect(() => {
-        setTimeout(() => {
+        if( fetched === true) {
             setIsReady(true);
-        }, 2000);
-    }, [])
+        }
+    }, [prepared])
     
     const getAllLogs = async (apiKey) => {
 
@@ -91,6 +88,7 @@ function TimeSpentOnSite(apiKey, userDetails) {
             .then(response => response.json())
             .then(responseData => {
               if(JSON.stringify(responseData.status) !== '401') {
+                setFetched(true);
                 setAllTimeLogs(() => {return responseData})
               }
             })
@@ -146,7 +144,7 @@ function TimeSpentOnSite(apiKey, userDetails) {
             isReady === true &&
 
             <TimeLogPlotBg>
-                <TimeLogPlotHeader>{t('last24')}</TimeLogPlotHeader>
+                <TimeLogPlotHeader>{t('30dTime')}</TimeLogPlotHeader>
                     <Resizable>
                     <ChartContainer
                         title={t("timeSpentOnSite")}
