@@ -23,6 +23,11 @@ use-image
 
 ![Register page](https://i.imgur.com/lWEmi4V.png)
 
+![Visit chart](https://i.imgur.com/7s5Go8D.png)
+
+![Time chart](https://i.imgur.com/o3JqhCg.png)
+
+
 ## Available Scripts
 
 In the project directory, you can run:
