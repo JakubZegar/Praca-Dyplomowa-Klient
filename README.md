@@ -31,7 +31,7 @@ Visits chart
 Time chart:
 ![Time chart](https://i.imgur.com/o3JqhCg.png)
 
-User activity:
+User activity heatmap:
 ![Heatmap chart](https://i.imgur.com/JtKLoDM.png)
 
 
