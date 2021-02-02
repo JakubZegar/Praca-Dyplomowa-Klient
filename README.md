@@ -1,6 +1,27 @@
-# Getting Started with Create React App
+# Web analysis tool client
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Application that allows you to collect information about selected user activities on external websites and to present the collected information in the form of accessible, legible and standardized charts. 
+
+### Required additional dependencies:
+country-flag-icons  
+i18next  
+i18next-browser-languagedetector  
+i18next-http-backend  
+local-storage  
+pondjs  
+react-i18next  
+react-icons  
+react-router-dom  
+react-scroll  
+react-timeseries-charts  
+styled-components  
+use-image  
+
+## Preview
+
+![Landing page](https://i.imgur.com/n93fj2f.png)
+
+![Register page](https://i.imgur.com/lWEmi4V.png)
 
 ## Available Scripts
 
