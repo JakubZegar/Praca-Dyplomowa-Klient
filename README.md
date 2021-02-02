@@ -19,13 +19,20 @@ use-image
 
 ## Preview
 
+Front page
 ![Landing page](https://i.imgur.com/n93fj2f.png)
 
+Register page
 ![Register page](https://i.imgur.com/lWEmi4V.png)
 
+Visits chart
 ![Visit chart](https://i.imgur.com/7s5Go8D.png)
 
+Time chart:
 ![Time chart](https://i.imgur.com/o3JqhCg.png)
+
+User activity:
+![Heatmap chart](https://i.imgur.com/JtKLoDM.png)
 
 
 ## Available Scripts
